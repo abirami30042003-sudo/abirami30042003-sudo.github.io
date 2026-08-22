@@ -245,8 +245,9 @@
     .highlight-number {
       display: block;
       color: var(--accent);
-      font-size: 29px;
+      font-size: clamp(22px, 3vw, 29px);
       font-weight: 700;
+      overflow-wrap: anywhere;
     }
 
     .highlight-label {
@@ -601,6 +602,7 @@
       </a>
 
       <div class="navigation-links">
+
         <a href="#about">
           About
         </a>
@@ -620,8 +622,8 @@
         <a href="#contact">
           Contact
         </a>
-      </div>
 
+      </div>
     </div>
   </nav>
 
@@ -642,9 +644,9 @@
 
         <p class="hero-description">
           I’m Abi Balakrishnan, an automotive and electro-mechanical
-          engineer with experience across autonomous race vehicles,
-          vehicle electronics, battery systems, and engineering
-          validation.
+          engineer with experience across autonomous vehicles,
+          motorsport electronics, battery systems, and
+          engineering validation.
         </p>
 
         <div class="button-row">
@@ -664,148 +666,151 @@
           </a>
 
         </div>
-
       </div>
     </section>
 
     <!-- ABOUT -->
 
-<section id="about">
-  <div class="container">
+    <section id="about">
+      <div class="container">
 
-    <div class="section-heading">
-      <div class="eyebrow">
-        About me
+        <div class="section-heading">
+
+          <div class="eyebrow">
+            About me
+          </div>
+
+          <h2>
+            Electronics meets high-performance engineering.
+          </h2>
+
+        </div>
+
+        <div class="about-grid">
+
+          <div class="panel">
+
+            <p>
+              I am an automotive and electro-mechanical engineer
+              with hands-on experience developing electronic
+              systems for autonomous vehicles, electric mobility,
+              and motorsport applications.
+            </p>
+
+            <p>
+              My projects include an autonomous delivery bike,
+              an autonomous rover, and electronics leadership
+              within an award-winning Formula Student
+              autonomous racing team.
+            </p>
+
+            <p>
+              I am particularly interested in Formula 1,
+              Formula E, the World Endurance Championship,
+              Formula Student, and the development of
+              autonomous systems and intelligent transport.
+            </p>
+
+            <p>
+              My technical interests include vehicle electronics,
+              electrical integration, embedded systems, battery
+              engineering, testing, and validation.
+            </p>
+
+          </div>
+
+          <div class="panel">
+
+            <h3>
+              Education and engineering focus
+            </h3>
+
+            <ul>
+
+              <li>
+                MSc Automotive Engineering with Electric Vehicles,
+                Oxford Brookes University.
+              </li>
+
+              <li>
+                BEng Electro-Mechanical Engineering,
+                Oxford Brookes University.
+              </li>
+
+              <li>
+                Autonomous vehicle electronics and
+                intelligent transport systems.
+              </li>
+
+              <li>
+                Motorsport electronics and
+                high-performance vehicle systems.
+              </li>
+
+              <li>
+                Battery modelling, thermal management,
+                and electric powertrains.
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+        <div class="highlight-strip">
+
+          <div class="highlight-card">
+
+            <span class="highlight-number">
+              Autonomous
+            </span>
+
+            <span class="highlight-label">
+              Delivery bike, rover, and
+              autonomous racing platforms.
+            </span>
+
+          </div>
+
+          <div class="highlight-card">
+
+            <span class="highlight-number">
+              Electronics
+            </span>
+
+            <span class="highlight-label">
+              Vehicle integration, embedded systems,
+              sensors, and electrical testing.
+            </span>
+
+          </div>
+
+          <div class="highlight-card">
+
+            <span class="highlight-number">
+              Motorsport
+            </span>
+
+            <span class="highlight-label">
+              Formula Student, Formula E, F1,
+              and endurance racing interests.
+            </span>
+
+          </div>
+
+        </div>
+
       </div>
+    </section>
 
-      <h2>
-        Electronics meets high-performance engineering.
-      </h2>
-    </div>
-
-    <div class="about-grid">
-
-      <div class="panel">
-
-        <p>
-          I am an automotive and electro-mechanical engineer
-          with hands-on experience developing electronic
-          systems for autonomous vehicles, electric mobility,
-          and motorsport applications.
-        </p>
-
-        <p>
-          My projects include an autonomous delivery bike,
-          an autonomous rover, and electronics leadership
-          within an award-winning Formula Student
-          autonomous racing team.
-        </p>
-
-        <p>
-          I am particularly interested in Formula 1,
-          Formula E, the World Endurance Championship,
-          Formula Student, and the development of
-          autonomous systems and intelligent transport.
-        </p>
-
-        <p>
-          My technical interests include vehicle electronics,
-          electrical integration, embedded systems, battery
-          engineering, testing, and validation.
-        </p>
-
-      </div>
-
-      <div class="panel">
-
-        <h3>
-          Education and engineering focus
-        </h3>
-
-        <ul>
-
-          <li>
-            MSc Automotive Engineering with Electric Vehicles,
-            Oxford Brookes University.
-          </li>
-
-          <li>
-            BEng Electro-Mechanical Engineering,
-            Oxford Brookes University.
-          </li>
-
-          <li>
-            Autonomous vehicle electronics and
-            intelligent transport systems.
-          </li>
-
-          <li>
-            Motorsport electronics and
-            high-performance vehicle systems.
-          </li>
-
-          <li>
-            Battery modelling, thermal management,
-            and electric powertrains.
-          </li>
-
-        </ul>
-
-      </div>
-
-    </div>
-
-    <div class="highlight-strip">
-
-      <div class="highlight-card">
-
-        <span class="highlight-number">
-          Autonomous
-        </span>
-
-        <span class="highlight-label">
-          Delivery bike, rover, and
-          autonomous racing platforms.
-        </span>
-
-      </div>
-
-      <div class="highlight-card">
-
-        <span class="highlight-number">
-          Electronics
-        </span>
-
-        <span class="highlight-label">
-          Vehicle integration, embedded systems,
-          sensors, and electrical testing.
-        </span>
-
-      </div>
-
-      <div class="highlight-card">
-
-        <span class="highlight-number">
-          Motorsport
-        </span>
-
-        <span class="highlight-label">
-          Formula Student, Formula E, F1,
-          and endurance racing interests.
-        </span>
-
-      </div>
-
-    </div>
-
-  </div>
-</section>
     <!-- PROJECTS -->
 
     <section id="projects">
       <div class="container">
 
         <div class="section-heading">
+
           <div class="eyebrow">
             Selected work
           </div>
@@ -818,11 +823,13 @@
             Projects across autonomous motorsport, vehicle electronics,
             battery engineering, and electric vehicle development.
           </p>
+
         </div>
 
         <div class="projects-grid">
 
           <article class="project-card">
+
             <div class="project-number">
               PROJECT 01
             </div>
@@ -839,6 +846,7 @@
             </p>
 
             <div class="tags">
+
               <span class="tag">
                 Motorsport electronics
               </span>
@@ -850,6 +858,7 @@
               <span class="tag">
                 Award-winning team
               </span>
+
             </div>
 
             <a
@@ -858,9 +867,11 @@
             >
               Explore the Formula Student project →
             </a>
+
           </article>
 
           <article class="project-card">
+
             <div class="project-number">
               PROJECT 02
             </div>
@@ -877,6 +888,7 @@
             </p>
 
             <div class="tags">
+
               <span class="tag">
                 MATLAB
               </span>
@@ -888,16 +900,19 @@
               <span class="tag">
                 Thermal management
               </span>
+
             </div>
+
           </article>
 
           <article class="project-card">
+
             <div class="project-number">
               PROJECT 03
             </div>
 
             <h3>
-              Autonomous Delivery Vehicle Powertrain
+              Autonomous Delivery Bike and Powertrain
             </h3>
 
             <p>
@@ -907,6 +922,7 @@
             </p>
 
             <div class="tags">
+
               <span class="tag">
                 Battery design
               </span>
@@ -916,12 +932,15 @@
               </span>
 
               <span class="tag">
-                Autonomous mobility
+                Autonomous transport
               </span>
+
             </div>
+
           </article>
 
           <article class="project-card">
+
             <div class="project-number">
               PROJECT 04
             </div>
@@ -937,6 +956,7 @@
             </p>
 
             <div class="tags">
+
               <span class="tag">
                 Embedded systems
               </span>
@@ -948,11 +968,12 @@
               <span class="tag">
                 Autonomous systems
               </span>
+
             </div>
+
           </article>
 
         </div>
-
       </div>
     </section>
 
@@ -1004,6 +1025,7 @@
           </p>
 
           <div class="tags">
+
             <span class="tag">
               First-year platform
             </span>
@@ -1019,6 +1041,7 @@
             <span class="tag">
               Electrical integration
             </span>
+
           </div>
 
         </div>
@@ -1026,6 +1049,7 @@
         <!-- VEHICLE PLATFORMS -->
 
         <div class="section-heading">
+
           <div class="eyebrow">
             Three vehicle platforms
           </div>
@@ -1039,6 +1063,7 @@
             Platform Cup vehicle, the IMechE autonomous development
             vehicle, and our autonomous race-kart platform.
           </p>
+
         </div>
 
         <div class="platforms-grid">
@@ -1058,7 +1083,7 @@
                 alt="Oxford Brookes Racing Autonomous Platform Cup vehicle"
               >
 
-              Upload platform-cup.jpg to your GitHub repository first.
+              Upload platform-cup.jpg to GitHub first.
             -->
 
             <div class="image-placeholder">
@@ -1085,6 +1110,7 @@
               </p>
 
               <div class="tags">
+
                 <span class="tag">
                   Electrical architecture
                 </span>
@@ -1092,10 +1118,10 @@
                 <span class="tag">
                   Integration
                 </span>
+
               </div>
 
             </div>
-
           </article>
 
           <!-- PLATFORM 2 -->
@@ -1113,7 +1139,7 @@
                 alt="IMechE autonomous driving system development vehicle"
               >
 
-              Upload adsdv.jpg to your GitHub repository first.
+              Upload adsdv.jpg to GitHub first.
             -->
 
             <div class="image-placeholder">
@@ -1140,6 +1166,7 @@
               </p>
 
               <div class="tags">
+
                 <span class="tag">
                   Autonomous systems
                 </span>
@@ -1147,10 +1174,10 @@
                 <span class="tag">
                   Testing
                 </span>
+
               </div>
 
             </div>
-
           </article>
 
           <!-- PLATFORM 3 -->
@@ -1168,7 +1195,7 @@
                 alt="Oxford Brookes Racing Autonomous race-kart platform"
               >
 
-              Upload race-kart.jpg to your GitHub repository first.
+              Upload race-kart.jpg to GitHub first.
             -->
 
             <div class="image-placeholder">
@@ -1195,6 +1222,7 @@
               </p>
 
               <div class="tags">
+
                 <span class="tag">
                   Race kart
                 </span>
@@ -1202,10 +1230,10 @@
                 <span class="tag">
                   Electronics
                 </span>
+
               </div>
 
             </div>
-
           </article>
 
         </div>
@@ -1216,6 +1244,7 @@
           class="section-heading"
           style="margin-top: 58px;"
         >
+
           <div class="eyebrow">
             My contribution
           </div>
@@ -1229,11 +1258,13 @@
             disclosing confidential vehicle designs or internal
             technical documentation.
           </p>
+
         </div>
 
         <div class="contributions-grid">
 
           <article class="contribution-card">
+
             <h3>
               Electrical Systems
             </h3>
@@ -1243,9 +1274,11 @@
               hardware integration, wiring, and preparation
               of vehicle electronics for competition.
             </p>
+
           </article>
 
           <article class="contribution-card">
+
             <h3>
               Sensors and Vehicle Integration
             </h3>
@@ -1255,9 +1288,11 @@
               to support autonomous operation and coordinated
               engineering development.
             </p>
+
           </article>
 
           <article class="contribution-card">
+
             <h3>
               Testing and Troubleshooting
             </h3>
@@ -1267,9 +1302,11 @@
               diagnosis, and problem-solving under demanding
               competition deadlines.
             </p>
+
           </article>
 
           <article class="contribution-card">
+
             <h3>
               Team Leadership
             </h3>
@@ -1279,6 +1316,7 @@
               student team working across autonomous vehicle
               development and motorsport competition.
             </p>
+
           </article>
 
         </div>
@@ -1306,6 +1344,7 @@
           <div class="awards-grid">
 
             <div class="award-card">
+
               <strong>
                 Overall Formula Student AI Winner
               </strong>
@@ -1313,9 +1352,11 @@
               <span>
                 Overall competition achievement.
               </span>
+
             </div>
 
             <div class="award-card">
+
               <strong>
                 Overall Dynamics Winner
               </strong>
@@ -1323,9 +1364,11 @@
               <span>
                 Dynamic event performance.
               </span>
+
             </div>
 
             <div class="award-card">
+
               <strong>
                 Overall Track Drive Winner
               </strong>
@@ -1333,9 +1376,11 @@
               <span>
                 Autonomous track-driving achievement.
               </span>
+
             </div>
 
             <div class="award-card">
+
               <strong>
                 Overall Skidpad Winner
               </strong>
@@ -1343,9 +1388,11 @@
               <span>
                 Autonomous skidpad performance.
               </span>
+
             </div>
 
             <div class="award-card">
+
               <strong>
                 Autonomous Platform Cup Milestone
               </strong>
@@ -1354,6 +1401,7 @@
                 First and only team to drive on track during
                 the competition.
               </span>
+
             </div>
 
           </div>
@@ -1472,11 +1520,10 @@
           </article>
 
         </div>
-
       </div>
     </section>
 
-    <!-- SKILLS -->
+    <!-- TECHNICAL SKILLS -->
 
     <section id="skills">
       <div class="container">
@@ -1538,7 +1585,6 @@
           </article>
 
         </div>
-
       </div>
     </section>
 
@@ -1563,7 +1609,8 @@
 
           <p>
             I am interested in early-career opportunities in Formula 1,
-            motorsport electronics, autonomous systems, vehicle
+            Formula E, endurance racing, motorsport electronics,
+            autonomous systems, intelligent transport, vehicle
             engineering, battery development, testing, and validation.
           </p>
 
@@ -1625,13 +1672,14 @@
             </a>
 
           </div>
-
         </div>
 
       </div>
     </section>
 
   </main>
+
+  <!-- FOOTER -->
 
   <footer>
     <div class="container">
