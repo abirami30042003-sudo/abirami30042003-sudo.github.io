@@ -10,23 +10,33 @@
 
   <meta
     name="description"
-    content="Abi Balakrishnan — motorsport electronics, autonomous systems, and electric vehicle engineering portfolio."
+    content="Abi Balakrishnan — automotive engineer specialising in electronics, autonomous systems, battery engineering, and motorsport."
   >
 
+  <meta name="theme-color" content="#faf7f2">
+
   <title>
-    Abi Balakrishnan | Motorsport Electronics & Autonomous Systems
+    Abi Balakrishnan | Motorsport, Electronics & Autonomous Systems
   </title>
 
   <style>
+    /* ==============================================
+       COLOURS AND GENERAL SETTINGS
+       ============================================== */
+
     :root {
-      --background: #090b10;
-      --surface: #11151d;
-      --surface-light: #171d28;
-      --text: #f3f5f8;
-      --muted: #a9b2c1;
-      --accent: #25d1ff;
-      --accent-secondary: #b9ff66;
-      --border: rgba(255, 255, 255, 0.1);
+      --cream: #faf7f2;
+      --cream-dark: #f2ece4;
+      --white: #ffffff;
+      --ink: #202336;
+      --muted: #666a79;
+      --blue: #4568dc;
+      --blue-soft: #edf1ff;
+      --pink: #e78aa8;
+      --pink-soft: #fff0f4;
+      --border: #e8e2da;
+      --shadow: 0 14px 40px rgba(32, 35, 54, 0.07);
+      --radius: 20px;
     }
 
     * {
@@ -39,10 +49,16 @@
 
     body {
       margin: 0;
-      background: var(--background);
-      color: var(--text);
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
+      color: var(--ink);
+      background: var(--cream);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
     }
 
     a {
@@ -52,25 +68,35 @@
 
     img {
       display: block;
+      width: 100%;
       max-width: 100%;
     }
 
     .container {
-      width: min(1120px, 90%);
+      width: min(1140px, 90%);
       margin: 0 auto;
     }
+
+    section {
+      padding: 92px 0;
+      scroll-margin-top: 90px;
+    }
+
+    /* ==============================================
+       TOP NAVIGATION
+       ============================================== */
 
     .navigation {
       position: sticky;
       top: 0;
-      z-index: 10;
-      background: rgba(9, 11, 16, 0.92);
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(12px);
+      z-index: 20;
+      background: rgba(250, 247, 242, 0.92);
+      border-bottom: 1px solid rgba(232, 226, 218, 0.9);
+      backdrop-filter: blur(14px);
     }
 
     .navigation-inner {
-      min-height: 76px;
+      min-height: 78px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -79,303 +105,295 @@
 
     .brand {
       font-size: 17px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
+      font-weight: 750;
+      letter-spacing: -0.3px;
       white-space: nowrap;
     }
 
-    .brand span {
-      color: var(--accent);
+    .brand-symbols {
+      margin-left: 5px;
+      font-size: 15px;
     }
 
     .navigation-links {
       display: flex;
       align-items: center;
-      gap: 22px;
+      flex-wrap: wrap;
+      gap: 20px;
       color: var(--muted);
       font-size: 14px;
     }
 
-    .navigation-links a:hover {
-      color: var(--accent);
+    .navigation-links a {
+      transition: color 0.2s ease;
     }
 
-    .hero {
-      min-height: 82vh;
-      display: flex;
-      align-items: center;
-      background:
-        radial-gradient(
-          circle at 80% 20%,
-          rgba(37, 209, 255, 0.13),
-          transparent 32%
-        ),
-        radial-gradient(
-          circle at 15% 85%,
-          rgba(185, 255, 102, 0.07),
-          transparent 30%
-        );
+    .navigation-links a:hover {
+      color: var(--blue);
     }
+
+    /* ==============================================
+       SHARED TEXT STYLES
+       ============================================== */
 
     .eyebrow {
-      color: var(--accent);
+      display: inline-block;
+      color: var(--blue);
       font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 2px;
+      font-weight: 750;
+      letter-spacing: 1.9px;
       text-transform: uppercase;
     }
 
-    h1 {
-      max-width: 940px;
-      margin: 18px 0;
-      font-size: clamp(48px, 8vw, 82px);
-      line-height: 1.06;
-      letter-spacing: -3px;
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 34px;
     }
 
-    .hero-description {
-      max-width: 730px;
-      color: var(--muted);
-      font-size: 19px;
+    .section-heading h2 {
+      margin: 10px 0 12px;
+      font-size: clamp(34px, 5vw, 52px);
+      line-height: 1.12;
+      letter-spacing: -1.7px;
     }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .soft-blue {
+      color: var(--blue);
+    }
+
+    .soft-pink {
+      color: var(--pink);
+    }
+
+    /* ==============================================
+       BUTTONS
+       ============================================== */
 
     .button-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 13px;
       margin-top: 28px;
     }
 
     .button {
       display: inline-flex;
+      min-height: 48px;
       align-items: center;
       justify-content: center;
-      min-height: 48px;
       padding: 12px 19px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
+      border: 1px solid transparent;
+      border-radius: 999px;
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 650;
       transition:
         transform 0.2s ease,
-        border-color 0.2s ease,
-        background 0.2s ease;
+        background 0.2s ease,
+        border-color 0.2s ease;
     }
 
     .button:hover {
-      transform: translateY(-3px);
-      border-color: var(--accent);
+      transform: translateY(-2px);
     }
 
     .button-primary {
-      color: #061018;
-      background: var(--accent);
-      border-color: var(--accent);
+      color: var(--white);
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .button-primary:hover {
+      background: #3758c9;
     }
 
     .button-secondary {
-      color: var(--text);
-      background: transparent;
+      color: var(--ink);
+      background: var(--white);
+      border-color: var(--border);
     }
 
-    section {
-      padding: 88px 0;
+    .button-secondary:hover {
+      border-color: var(--blue);
     }
 
-    .section-heading {
-      margin-bottom: 30px;
+    /* ==============================================
+       HERO / LANDING SECTION
+       ============================================== */
+
+    .hero {
+      min-height: 78vh;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(
+          circle at 87% 18%,
+          rgba(69, 104, 220, 0.09),
+          transparent 29%
+        ),
+        radial-gradient(
+          circle at 13% 85%,
+          rgba(231, 138, 168, 0.13),
+          transparent 30%
+        );
     }
 
-    .section-heading h2 {
-      margin: 8px 0;
-      font-size: clamp(31px, 5vw, 42px);
-      line-height: 1.18;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 58px;
     }
 
-    .section-heading p {
-      max-width: 760px;
+    .hero h1 {
+      max-width: 720px;
+      margin: 17px 0 16px;
+      font-size: clamp(48px, 7vw, 78px);
+      line-height: 1.04;
+      letter-spacing: -3px;
+    }
+
+    .hero-description {
+      max-width: 615px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .hero-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .hero-detail {
+      padding: 7px 12px;
+      color: var(--blue);
+      background: var(--blue-soft);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 650;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 460px;
+      object-fit: cover;
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-photo-placeholder {
+      min-height: 460px;
+      padding: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background:
+        linear-gradient(
+          145deg,
+          var(--blue-soft),
+          var(--pink-soft)
+        );
+      border: 1px solid var(--border);
+      border-radius: 26px;
       color: var(--muted);
     }
 
+    .hero-photo-placeholder strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--ink);
+      font-size: 20px;
+    }
+
+    /* ==============================================
+       ABOUT
+       ============================================== */
+
     .about-grid {
       display: grid;
-      grid-template-columns: 1.3fr 0.9fr;
+      grid-template-columns: 1.2fr 0.8fr;
       gap: 22px;
     }
 
     .panel {
-      padding: 28px;
-      background: var(--surface);
+      padding: 30px;
+      background: var(--white);
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
 
     .panel h3 {
       margin-top: 0;
+      font-size: 21px;
     }
 
-    .panel p,
-    .panel li {
+    .panel p {
       color: var(--muted);
     }
 
-    .panel ul {
-      margin-bottom: 0;
-      padding-left: 20px;
+    .education-item + .education-item {
+      padding-top: 17px;
+      margin-top: 17px;
+      border-top: 1px solid var(--border);
     }
 
-    .panel li + li {
-      margin-top: 8px;
-    }
-
-    .highlight-strip {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 24px;
-    }
-
-    .highlight-card {
-      padding: 22px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-    }
-
-    .highlight-number {
+    .education-item strong {
       display: block;
-      color: var(--accent);
-      font-size: clamp(22px, 3vw, 29px);
-      font-weight: 700;
-      overflow-wrap: anywhere;
+      color: var(--ink);
+      font-size: 15px;
     }
 
-    .highlight-label {
+    .education-item span {
       display: block;
-      margin-top: 5px;
+      margin-top: 4px;
       color: var(--muted);
       font-size: 14px;
     }
+
+    /* ==============================================
+       PROJECT CARDS
+       ============================================== */
 
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      gap: 21px;
     }
 
     .project-card {
-      min-height: 270px;
-      padding: 25px;
-      background: var(--surface);
+      overflow: hidden;
+      background: var(--white);
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
       transition:
-        transform 0.2s ease,
-        border-color 0.2s ease;
+        transform 0.22s ease,
+        border-color 0.22s ease;
     }
 
     .project-card:hover {
       transform: translateY(-5px);
-      border-color: rgba(37, 209, 255, 0.55);
+      border-color: rgba(69, 104, 220, 0.35);
     }
 
-    .project-number {
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-    }
-
-    .project-card h3 {
-      margin: 14px 0 8px;
-      font-size: 21px;
-    }
-
-    .project-card p {
-      color: var(--muted);
-    }
-
-    .project-link {
-      display: inline-block;
-      margin-top: 12px;
-      color: var(--accent);
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .project-link:hover {
-      text-decoration: underline;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 18px;
-    }
-
-    .tag {
-      padding: 5px 10px;
-      background: var(--surface-light);
-      border-radius: 999px;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .featured-panel {
-      margin-bottom: 26px;
-      padding: 32px;
-      background:
-        linear-gradient(
-          135deg,
-          rgba(37, 209, 255, 0.1),
-          rgba(17, 21, 29, 0.98) 55%
-        );
-      border: 1px solid rgba(37, 209, 255, 0.25);
-      border-radius: 16px;
-    }
-
-    .featured-panel h3 {
-      margin: 12px 0;
-      font-size: 28px;
-    }
-
-    .featured-panel p {
-      max-width: 820px;
-      color: var(--muted);
-    }
-
-    .platforms-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 24px;
-    }
-
-    .platform-card {
-      overflow: hidden;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      transition:
-        transform 0.2s ease,
-        border-color 0.2s ease;
-    }
-
-    .platform-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(37, 209, 255, 0.55);
-    }
-
-    .platform-image {
+    .project-image {
       width: 100%;
-      height: 210px;
+      height: 230px;
       object-fit: cover;
     }
 
-    .image-placeholder {
-      min-height: 210px;
-      padding: 22px;
+    .project-image-placeholder {
+      min-height: 205px;
+      padding: 24px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -384,131 +402,304 @@
       background:
         linear-gradient(
           135deg,
-          rgba(37, 209, 255, 0.12),
-          rgba(185, 255, 102, 0.06)
+          var(--blue-soft),
+          var(--pink-soft)
         );
       border-bottom: 1px solid var(--border);
+      font-size: 14px;
     }
 
-    .platform-content {
-      padding: 22px;
+    .project-content {
+      padding: 25px;
     }
 
-    .platform-content h3 {
-      margin: 12px 0 8px;
-      font-size: 19px;
+    .project-category {
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 750;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
     }
 
-    .platform-content p {
+    .project-content h3 {
+      margin: 10px 0 8px;
+      font-size: 22px;
+      line-height: 1.25;
+    }
+
+    .project-content p {
       color: var(--muted);
       font-size: 14px;
     }
 
-    .awards-grid {
+    .project-link {
+      display: inline-block;
+      margin-top: 13px;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    /* ==============================================
+       SOFTWARE TAGS
+       ============================================== */
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 17px;
+    }
+
+    .tag {
+      padding: 6px 10px;
+      color: var(--blue);
+      background: var(--blue-soft);
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .tag-pink {
+      color: #a95170;
+      background: var(--pink-soft);
+    }
+
+    /* ==============================================
+       TECHNICAL EXPERTISE
+       ============================================== */
+
+    .expertise-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      margin-top: 22px;
+      gap: 16px;
     }
 
-    .award-card {
-      padding: 18px;
-      background: var(--surface-light);
+    .expertise-card {
+      padding: 24px;
+      background: var(--white);
       border: 1px solid var(--border);
-      border-radius: 10px;
+      border-radius: 17px;
     }
 
-    .award-card strong {
-      display: block;
-      color: var(--text);
-      font-size: 15px;
+    .expertise-card h3 {
+      margin: 8px 0 7px;
+      font-size: 18px;
+      line-height: 1.3;
     }
 
-    .award-card span {
-      display: block;
-      margin-top: 5px;
+    .expertise-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ==============================================
+       FORMULA STUDENT FEATURE
+       ============================================== */
+
+    .racing-feature {
+      padding: 35px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(237, 241, 255, 0.95),
+          rgba(255, 240, 244, 0.8)
+        );
+      border: 1px solid var(--border);
+      border-radius: 22px;
+    }
+
+    .racing-feature h3 {
+      margin: 12px 0 10px;
+      font-size: clamp(25px, 4vw, 34px);
+      line-height: 1.2;
+    }
+
+    .racing-feature p {
+      max-width: 780px;
+      color: var(--muted);
+    }
+
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 17px;
+      margin-top: 24px;
+    }
+
+    .platform-card {
+      overflow: hidden;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+    }
+
+    .platform-image {
+      width: 100%;
+      height: 195px;
+      object-fit: cover;
+    }
+
+    .platform-placeholder {
+      min-height: 195px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--muted);
+      background:
+        linear-gradient(
+          135deg,
+          var(--blue-soft),
+          var(--pink-soft)
+        );
+      font-size: 13px;
+    }
+
+    .platform-content {
+      padding: 20px;
+    }
+
+    .platform-content h3 {
+      margin: 9px 0 7px;
+      font-size: 18px;
+    }
+
+    .platform-content p {
+      margin-bottom: 0;
       color: var(--muted);
       font-size: 13px;
     }
 
-    .contributions-grid {
+    /* ==============================================
+       AWARDS AND RECOGNITION
+       ============================================== */
+
+    .recognition-group + .recognition-group {
+      margin-top: 36px;
+    }
+
+    .recognition-group h3 {
+      margin-bottom: 14px;
+      font-size: 22px;
+    }
+
+    .recognition-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .recognition-card {
+      padding: 20px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+    }
+
+    .recognition-year {
+      display: inline-block;
+      margin-bottom: 6px;
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 750;
+      letter-spacing: 1px;
+    }
+
+    .recognition-card strong {
+      display: block;
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    .recognition-card span:last-child {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ==============================================
+       RESEARCH AND SPEAKING
+       ============================================== */
+
+    .experience-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 16px;
-      margin-top: 25px;
     }
 
-    .contribution-card {
-      padding: 22px;
-      background: var(--surface);
+    .experience-card {
+      padding: 23px;
+      background: var(--white);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 17px;
     }
 
-    .contribution-card h3 {
-      margin: 0 0 8px;
-      color: var(--accent);
-      font-size: 17px;
+    .experience-card h3 {
+      margin: 9px 0 7px;
+      font-size: 19px;
+      line-height: 1.3;
     }
 
-    .contribution-card p {
+    .experience-card p {
       margin: 0;
       color: var(--muted);
       font-size: 14px;
     }
 
-    .experience-list {
-      display: grid;
-      gap: 14px;
-    }
+    /* ==============================================
+       COMMUNITY AND VOLUNTEERING
+       ============================================== */
 
-    .experience-item {
-      padding: 22px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-    }
-
-    .experience-item h3 {
-      margin: 0 0 6px;
-    }
-
-    .experience-item p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .skills-grid {
+    .community-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      gap: 15px;
     }
 
-    .skill-card {
-      padding: 24px;
-      background: var(--surface);
+    .community-card {
+      padding: 22px;
+      background: var(--white);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 16px;
     }
 
-    .skill-card h3 {
-      margin-top: 0;
-      color: var(--accent);
+    .community-card h3 {
+      margin: 7px 0 5px;
+      font-size: 17px;
     }
 
-    .skill-card p {
-      margin-bottom: 0;
+    .community-card p {
+      margin: 0;
       color: var(--muted);
+      font-size: 13px;
     }
 
-    .contact-card {
-      padding: 34px;
-      background: var(--surface);
+    /* ==============================================
+       CONTACT
+       ============================================== */
+
+    .contact-panel {
+      padding: 38px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(237, 241, 255, 0.92),
+          rgba(255, 240, 244, 0.85)
+        );
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-radius: 22px;
     }
 
-    .contact-card p {
+    .contact-panel p {
       max-width: 700px;
       color: var(--muted);
     }
@@ -516,7 +707,8 @@
     .contact-email {
       display: inline-block;
       margin-top: 8px;
-      color: var(--accent);
+      color: var(--blue);
+      font-size: 16px;
       font-weight: 700;
       overflow-wrap: anywhere;
     }
@@ -526,65 +718,79 @@
     }
 
     footer {
-      padding: 28px 0 42px;
+      padding: 27px 0 40px;
       border-top: 1px solid var(--border);
       color: var(--muted);
-      font-size: 14px;
+      font-size: 13px;
     }
 
-    @media (max-width: 900px) {
-      .platforms-grid {
+    /* ==============================================
+       TABLET AND PHONE LAYOUT
+       ============================================== */
+
+    @media (max-width: 950px) {
+      .hero-grid,
+      .about-grid {
         grid-template-columns: 1fr;
       }
 
-      .platform-card {
-        max-width: 650px;
+      .hero-image,
+      .hero-photo-placeholder {
+        max-width: 580px;
+        min-height: 360px;
+        height: 360px;
       }
 
-      .platform-image,
-      .image-placeholder {
-        height: 260px;
+      .platform-grid,
+      .community-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 760px) {
+    @media (max-width: 720px) {
       .navigation-inner {
-        min-height: 70px;
+        min-height: 72px;
         flex-wrap: wrap;
         padding: 13px 0;
       }
 
       .navigation-links {
-        flex-wrap: wrap;
         gap: 13px;
         font-size: 12px;
       }
 
-      .about-grid,
-      .projects-grid,
-      .skills-grid,
-      .highlight-strip,
-      .awards-grid,
-      .contributions-grid {
-        grid-template-columns: 1fr;
+      section {
+        padding: 72px 0;
       }
 
       .hero {
-        min-height: 72vh;
+        min-height: auto;
+        padding-top: 85px;
       }
 
-      h1 {
+      .hero h1 {
         letter-spacing: -2px;
       }
 
-      section {
-        padding: 70px 0;
+      .projects-grid,
+      .expertise-grid,
+      .recognition-list,
+      .experience-grid,
+      .platform-grid,
+      .community-grid {
+        grid-template-columns: 1fr;
       }
 
-      .featured-panel,
-      .contact-card,
+      .hero-image,
+      .hero-photo-placeholder {
+        min-height: 320px;
+        height: 320px;
+      }
+
+      .racing-feature,
+      .contact-panel,
       .panel {
-        padding: 23px;
+        padding: 24px;
       }
     }
   </style>
@@ -592,13 +798,18 @@
 
 <body>
 
-  <!-- NAVIGATION -->
+  <!-- ============================================
+       TOP NAVIGATION
+       ============================================ -->
 
   <nav class="navigation">
     <div class="container navigation-inner">
 
       <a class="brand" href="#home">
-        Abi Balakrishnan<span>.</span>
+        Abi Balakrishnan
+        <span class="brand-symbols">
+          ↗ ✨
+        </span>
       </a>
 
       <div class="navigation-links">
@@ -612,11 +823,15 @@
         </a>
 
         <a href="#formula-student">
-          Formula Student
+          Racing
         </a>
 
-        <a href="#experience">
-          Experience
+        <a href="#recognition">
+          Recognition
+        </a>
+
+        <a href="#research">
+          Research
         </a>
 
         <a href="#contact">
@@ -624,591 +839,230 @@
         </a>
 
       </div>
+
     </div>
   </nav>
 
   <main>
 
-    <!-- HOMEPAGE -->
+    <!-- ==========================================
+         HOMEPAGE
+         ========================================== -->
 
     <section class="hero" id="home">
-      <div class="container">
+      <div class="container hero-grid">
 
-        <div class="eyebrow">
-          Motorsport electronics · Autonomous systems · EV engineering
+        <div>
+
+          <div class="eyebrow">
+            Motorsport · Electronics · Autonomous Systems
+          </div>
+
+          <h1>
+            Building what moves
+            <span class="soft-blue">
+              motorsport
+            </span>
+            and
+            <span class="soft-pink">
+              autonomy
+            </span>
+            forward.
+          </h1>
+
+          <p class="hero-description">
+            I’m Abi Balakrishnan, an automotive and
+            electro-mechanical engineer working across
+            autonomous vehicles, motorsport electronics,
+            battery systems, and vehicle simulation.
+          </p>
+
+          <div class="hero-details">
+
+            <span class="hero-detail">
+              Electronics Lead
+            </span>
+
+            <span class="hero-detail">
+              MSc Automotive Engineering
+            </span>
+
+            <span class="hero-detail">
+              Award-Winning Research
+            </span>
+
+          </div>
+
+          <div class="button-row">
+
+            <a
+              class="button button-primary"
+              href="#projects"
+            >
+              Explore my work
+            </a>
+
+            <a
+              class="button button-secondary"
+              href="#contact"
+            >
+              Get in touch
+            </a>
+
+          </div>
+
         </div>
 
-        <h1>
-          Motorsport, Autonomy, and the Electronics Behind Both.
-        </h1>
+        <div>
 
-        <p class="hero-description">
-          I’m Abi Balakrishnan, an automotive and electro-mechanical
-          engineer with experience across autonomous vehicles,
-          motorsport electronics, battery systems, and
-          engineering validation.
-        </p>
+          <!--
+            PHOTO 1: YOUR MAIN PROFESSIONAL PHOTO
 
-        <div class="button-row">
+            Upload a photo called:
 
-          <a
-            class="button button-primary"
-            href="#projects"
-          >
-            Explore my projects
-          </a>
+            abi-profile.jpg
 
-          <a
-            class="button button-secondary"
-            href="#contact"
-          >
-            Get in touch
-          </a>
+            Then replace the entire placeholder div below with:
+
+            <img
+              class="hero-image"
+              src="abi-profile.jpg"
+              alt="Abi Balakrishnan, automotive and motorsport engineer"
+            >
+          -->
+
+          <div class="hero-photo-placeholder">
+            <div>
+
+              <strong>
+                Your main profile photo goes here.
+              </strong>
+
+              Add a professional photograph, a workshop
+              photograph, or a Formula Student team image.
+
+            </div>
+          </div>
 
         </div>
+
       </div>
     </section>
 
-    <!-- ABOUT -->
+    <!-- ==========================================
+         ABOUT
+         ========================================== -->
 
-   <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
 
-<!-- ABOUT -->
+        <div class="section-heading">
 
-<section id="about">
-  <div class="container">
+          <div class="eyebrow">
+            About me
+          </div>
 
-    <div class="section-heading">
-
-      <div class="eyebrow">
-        About me
-      </div>
-
-      <h2>
-        Engineering across autonomy, electronics,
-        and high-performance vehicles.
-      </h2>
-
-    </div>
-
-    <div class="about-grid">
-
-      <div class="panel">
-
-        <h3>
-          Hi, I’m Abi.
-        </h3>
-
-        <p>
-          I am an automotive and electro-mechanical engineer
-          with experience developing electronics, autonomous
-          vehicles, electric powertrains, and high-performance
-          vehicle systems.
-        </p>
-
-        <p>
-          My work includes an autonomous delivery vehicle,
-          an autonomous rover, and electronics leadership
-          within an award-winning Formula Student AI team.
-        </p>
-
-        <p>
-          I enjoy turning complex engineering challenges into
-          practical, tested solutions.
-        </p>
-
-      </div>
-
-      <div class="panel">
-
-        <h3>
-          Education
-        </h3>
-
-        <p>
-          <strong>
-            MSc Automotive Engineering with Electric Vehicles
-          </strong>
-
-          <br>
-
-          Oxford Brookes University
-        </p>
-
-        <p>
-          <strong>
-            BEng Electro-Mechanical Engineering
-          </strong>
-
-          <br>
-
-          Oxford Brookes University
-        </p>
-
-        <p>
-          <strong>
-            McLaren Next Women in Engineering
-          </strong>
-
-          <br>
-
-          Selected programme participant
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- TECHNICAL EXPERTISE -->
-
-<!-- TECHNICAL EXPERTISE -->
-
-<section id="technical-expertise">
-  <div class="container">
-
-    <div class="section-heading">
-
-      <div class="eyebrow">
-        Technical expertise
-      </div>
-
-      <h2>
-        Engineering experience.
-      </h2>
-
-      <p>
-        Selected work across battery systems, electronics,
-        autonomous vehicles, and engineering simulation.
-      </p>
-
-    </div>
-
-    <div class="projects-grid">
-
-      <!-- FORMULA E BATTERY -->
-
-      <article class="project-card">
-
-        <div class="project-number">
-          BATTERY ENGINEERING
-        </div>
-
-        <h3>
-          Formula E Battery and Thermal Modelling
-        </h3>
-
-        <p>
-          Modelled battery performance, race-duty cycles,
-          and cooling systems under Formula E-inspired
-          operating conditions.
-        </p>
-
-        <div class="tags">
-
-          <span class="tag">
-            MATLAB
-          </span>
-
-          <span class="tag">
-            Simulink
-          </span>
-
-          <span class="tag">
-            Simscape Battery
-          </span>
-
-          <span class="tag">
-            ANSYS Fluent
-          </span>
+          <h2>
+            Engineering with curiosity,
+            purpose, and ambition.
+          </h2>
 
         </div>
 
-      </article>
+        <div class="about-grid">
 
-      <!-- AUTONOMOUS DELIVERY VEHICLE -->
+          <div class="panel">
 
-      <article class="project-card">
+            <h3>
+              Hi, I’m Abi.
+            </h3>
 
-        <div class="project-number">
-          BATTERY AND POWERTRAIN
-        </div>
+            <p>
+              I am an automotive and electro-mechanical
+              engineer with hands-on experience in
+              autonomous systems, vehicle electronics,
+              battery engineering, and motorsport.
+            </p>
 
-        <h3>
-          Autonomous Delivery Vehicle Battery
-        </h3>
+            <p>
+              My projects include an autonomous delivery
+              vehicle, an autonomous rover, Formula E-inspired
+              battery research, and electronics leadership
+              within an award-winning Formula Student AI team.
+            </p>
 
-        <p>
-          Developed a battery and powertrain concept for
-          an autonomous delivery vehicle in collaboration
-          with industry.
-        </p>
+            <p>
+              I enjoy combining practical engineering,
+              technical analysis, and teamwork to turn
+              ambitious ideas into functioning systems.
+            </p>
 
-        <div class="tags">
+          </div>
 
-          <span class="tag">
-            MATLAB
-          </span>
+          <div class="panel">
 
-          <span class="tag">
-            Simulink
-          </span>
+            <h3>
+              Education and development
+            </h3>
 
-          <span class="tag">
-            Battery sizing
-          </span>
+            <div class="education-item">
 
-          <span class="tag">
-            Powertrain modelling
-          </span>
+              <strong>
+                MSc Automotive Engineering with Electric Vehicles
+              </strong>
 
-        </div>
+              <span>
+                Oxford Brookes University
+              </span>
 
-      </article>
+            </div>
 
-      <!-- MOTORSPORT ELECTRONICS -->
+            <div class="education-item">
 
-      <article class="project-card">
+              <strong>
+                BEng Electro-Mechanical Engineering
+              </strong>
 
-        <div class="project-number">
-          ELECTRONICS
-        </div>
+              <span>
+                Oxford Brookes University
+              </span>
 
-        <h3>
-          Autonomous Racing Electronics
-        </h3>
+            </div>
 
-        <p>
-          Developed and tested electrical systems,
-          circuits, sensors, and CAN communication for
-          autonomous racing applications.
-        </p>
+            <div class="education-item">
 
-        <div class="tags">
+              <strong>
+                McLaren Next Women in Engineering
+              </strong>
 
-          <span class="tag">
-            Multisim
-          </span>
+              <span>
+                Selected programme participant · 2026
+              </span>
 
-          <span class="tag">
-            EasyEDA
-          </span>
+            </div>
 
-          <span class="tag">
-            CAN
-          </span>
+            <div class="education-item">
 
-          <span class="tag">
-            Embedded systems
-          </span>
+              <strong>
+                Autonomous Driving and Intelligent Transport
+              </strong>
 
-        </div>
+              <span>
+                Research Assistant
+              </span>
 
-      </article>
+            </div>
 
-      <!-- AUTONOMOUS SYSTEMS -->
-
-      <article class="project-card">
-
-        <div class="project-number">
-          AUTONOMOUS SYSTEMS
-        </div>
-
-        <h3>
-          Autonomous Vehicles and Rover
-        </h3>
-
-        <p>
-          Worked across an autonomous delivery vehicle,
-          an autonomous rover, and award-winning
-          autonomous racing platforms.
-        </p>
-
-        <div class="tags">
-
-          <span class="tag">
-            Vehicle integration
-          </span>
-
-          <span class="tag">
-            Sensors
-          </span>
-
-          <span class="tag">
-            Intelligent transport
-          </span>
+          </div>
 
         </div>
-
-      </article>
-
-      <!-- VEHICLE DYNAMICS -->
-
-      <article class="project-card">
-
-        <div class="project-number">
-          VEHICLE DYNAMICS
-        </div>
-
-        <h3>
-          Bicycle Model and Drive-Cycle Development
-        </h3>
-
-        <p>
-          Developed a vehicle bicycle model and
-          reconstructed a Formula E-inspired race
-          drive cycle.
-        </p>
-
-        <div class="tags">
-
-          <span class="tag">
-            Adams
-          </span>
-
-          <span class="tag">
-            MATLAB
-          </span>
-
-          <span class="tag">
-            Vehicle dynamics
-          </span>
-
-        </div>
-
-      </article>
-
-      <!-- CRASH ANALYSIS -->
-
-      <article class="project-card">
-
-        <div class="project-number">
-          CRASH SIMULATION
-        </div>
-
-        <h3>
-          Impact Attenuator and Composite Analysis
-        </h3>
-
-        <p>
-          Analysed impact-attenuator performance,
-          crash behaviour, material selection,
-          and composite structures.
-        </p>
-
-        <div class="tags">
-
-          <span class="tag">
-            LS-DYNA
-          </span>
-
-          <span class="tag">
-            HyperMesh
-          </span>
-
-          <span class="tag">
-            Composites
-          </span>
-
-        </div>
-
-      </article>
-
-      <!-- NVH -->
-
-      <article class="project-card">
-
-        <div class="project-number">
-          NVH ANALYSIS
-        </div>
-
-        <h3>
-          Automotive and Structural Vibration
-        </h3>
-
-        <p>
-          Investigated vibration behaviour in beams,
-          vehicle chassis, seats, and suspension systems.
-        </p>
-
-        <div class="tags">
-
-          <span class="tag">
-            ANSYS Workbench
-          </span>
-
-          <span class="tag">
-            NVH
-          </span>
-
-          <span class="tag">
-            Structural analysis
-          </span>
-
-        </div>
-
-      </article>
-
-      <!-- CAD -->
-
-      <article class="project-card">
-
-        <div class="project-number">
-          MECHANICAL DESIGN
-        </div>
-
-        <h3>
-          CAD and Engineering Design
-        </h3>
-
-        <p>
-          Designed and modelled a Stirling engine,
-          battery components, and an impact attenuator.
-        </p>
-
-        <div class="tags">
-
-          <span class="tag">
-            SolidWorks
-          </span>
-
-          <span class="tag">
-            CAD
-          </span>
-
-          <span class="tag">
-            Mechanical design
-          </span>
-
-        </div>
-
-      </article>
-
-    </div>
-
-  </div>
-</section>
-    
-<!-- RECOGNITION -->
-
-<section id="recognition">
-  <div class="container">
-
-    <div class="section-heading">
-
-      <div class="eyebrow">
-        Recognition
-      </div>
-
-      <h2>
-        Awards, achievements, and selected programmes.
-      </h2>
-
-      <p>
-        Recognition across autonomous motorsport,
-        engineering research, and industry development.
-      </p>
-
-    </div>
-
-    <div class="awards-grid">
-
-      <div class="award-card">
-
-        <strong>
-          Overall Formula Student AI Winner
-        </strong>
-
-        <span>
-          Team achievement with Oxford Brookes
-          Racing Autonomous.
-        </span>
 
       </div>
+    </section>
 
-      <div class="award-card">
-
-        <strong>
-          Overall Dynamics Winner
-        </strong>
-
-        <span>
-          Formula Student AI team achievement.
-        </span>
-
-      </div>
-
-      <div class="award-card">
-
-        <strong>
-          Overall Track Drive Winner
-        </strong>
-
-        <span>
-          Formula Student AI team achievement.
-        </span>
-
-      </div>
-
-      <div class="award-card">
-
-        <strong>
-          Overall Skidpad Winner
-        </strong>
-
-        <span>
-          Formula Student AI team achievement.
-        </span>
-
-      </div>
-
-      <div class="award-card">
-
-        <strong>
-          Autonomous Platform Cup Milestone
-        </strong>
-
-        <span>
-          First and only team to drive on track
-          during the competition.
-        </span>
-
-      </div>
-
-      <div class="award-card">
-
-        <strong>
-          McLaren Next Women in Engineering
-        </strong>
-
-        <span>
-          Selected participant in McLaren’s
-          engineering development programme.
-        </span>
-
-      </div>
-
-      <div class="award-card">
-
-        <strong>
-          Conference Recognition
-        </strong>
-
-        <span>
-          Award-winning research presentation.
-          Add the conference and award title here.
-        </span>
-
-      </div>
-
-    </div>
-
-  </div>
-</section>
-    
-    <!-- PROJECTS -->
+    <!-- ==========================================
+         FEATURED PROJECTS
+         ========================================== -->
 
     <section id="projects">
       <div class="container">
@@ -1216,79 +1070,383 @@
         <div class="section-heading">
 
           <div class="eyebrow">
-            Selected work
+            Featured projects
           </div>
 
           <h2>
-            Engineering projects.
+            Ideas engineered into action.
           </h2>
 
           <p>
-            Projects across autonomous motorsport, vehicle electronics,
-            battery engineering, and electric vehicle development.
+            Selected projects across motorsport,
+            batteries, autonomous transport,
+            and vehicle electronics.
           </p>
 
         </div>
 
         <div class="projects-grid">
 
+          <!-- PROJECT 1 -->
+
           <article class="project-card">
 
-            <div class="project-number">
-              PROJECT 01
+            <!--
+              PHOTO 2: FORMULA E BATTERY PROJECT
+
+              Upload:
+
+              formula-e-battery.jpg
+
+              Then replace the placeholder div below with:
+
+              <img
+                class="project-image"
+                src="formula-e-battery.jpg"
+                alt="Formula E-inspired battery thermal modelling and cooling analysis"
+              >
+
+              Suitable visuals:
+              - MATLAB battery model
+              - Temperature comparison plot
+              - Monaco drive-cycle graph
+              - Battery cooling diagram
+            -->
+
+            <div class="project-image-placeholder">
+              Add a battery model, cooling-system diagram,
+              temperature plot, or race-duty-cycle graph.
+            </div>
+
+            <div class="project-content">
+
+              <div class="project-category">
+                MSc dissertation · Battery engineering
+              </div>
+
+              <h3>
+                Formula E Battery and Thermal Modelling
+              </h3>
+
+              <p>
+                Developed a Formula E-inspired battery model
+                and reconstructed vehicle specifications and
+                race-duty cycles to investigate battery
+                performance and cooling.
+              </p>
+
+              <div class="tags">
+
+                <span class="tag">
+                  MATLAB
+                </span>
+
+                <span class="tag">
+                  Simulink
+                </span>
+
+                <span class="tag">
+                  Simscape Battery
+                </span>
+
+                <span class="tag tag-pink">
+                  Thermal modelling
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+          <!-- PROJECT 2 -->
+
+          <article class="project-card">
+
+            <!--
+              PHOTO 3: AUTONOMOUS DELIVERY VEHICLE
+
+              Upload:
+
+              autonomous-delivery.jpg
+
+              Then replace the placeholder div below with:
+
+              <img
+                class="project-image"
+                src="autonomous-delivery.jpg"
+                alt="Autonomous delivery vehicle battery and powertrain project"
+              >
+
+              Suitable visuals:
+              - Delivery vehicle or bike
+              - Battery-pack model
+              - Powertrain diagram
+              - Range comparison plot
+            -->
+
+            <div class="project-image-placeholder">
+              Add a photograph of the autonomous delivery
+              vehicle, battery model, or powertrain diagram.
+            </div>
+
+            <div class="project-content">
+
+              <div class="project-category">
+                Industry collaboration · Electric powertrain
+              </div>
+
+              <h3>
+                Autonomous Delivery Vehicle Battery
+              </h3>
+
+              <p>
+                Developed a battery and powertrain concept
+                for an autonomous delivery vehicle, examining
+                battery sizing, vehicle range, and electrical
+                performance.
+              </p>
+
+              <div class="tags">
+
+                <span class="tag">
+                  MATLAB
+                </span>
+
+                <span class="tag">
+                  Simulink
+                </span>
+
+                <span class="tag">
+                  Battery sizing
+                </span>
+
+                <span class="tag tag-pink">
+                  Industry collaboration
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+          <!-- PROJECT 3 -->
+
+          <article class="project-card">
+
+            <!--
+              PHOTO 4: FORMULA STUDENT TEAM
+
+              Upload:
+
+              formula-student-team.jpg
+
+              Then replace the placeholder div below with:
+
+              <img
+                class="project-image"
+                src="formula-student-team.jpg"
+                alt="Oxford Brookes Racing Autonomous Formula Student AI team"
+              >
+
+              Only use a photo approved for public sharing.
+            -->
+
+            <div class="project-image-placeholder">
+              Add an approved team photo, competition
+              photograph, or autonomous racing vehicle image.
+            </div>
+
+            <div class="project-content">
+
+              <div class="project-category">
+                Formula Student AI UK · 2026
+              </div>
+
+              <h3>
+                Award-Winning Autonomous Racing Team
+              </h3>
+
+              <p>
+                Electronics Lead working across three
+                autonomous racing platforms within an
+                award-winning Formula Student AI team.
+              </p>
+
+              <div class="tags">
+
+                <span class="tag">
+                  Motorsport electronics
+                </span>
+
+                <span class="tag">
+                  CAN systems
+                </span>
+
+                <span class="tag tag-pink">
+                  Team leadership
+                </span>
+
+              </div>
+
+              <a
+                class="project-link"
+                href="#formula-student"
+              >
+                Explore the racing project →
+              </a>
+
+            </div>
+
+          </article>
+
+          <!-- PROJECT 4 -->
+
+          <article class="project-card">
+
+            <!--
+              PHOTO 5: AUTONOMOUS ROVER
+
+              Upload:
+
+              autonomous-rover.jpg
+
+              Then replace the placeholder div below with:
+
+              <img
+                class="project-image"
+                src="autonomous-rover.jpg"
+                alt="Autonomous rover electronics and vehicle integration project"
+              >
+            -->
+
+            <div class="project-image-placeholder">
+              Add a photograph of your autonomous rover,
+              its sensors, or an approved development setup.
+            </div>
+
+            <div class="project-content">
+
+              <div class="project-category">
+                Autonomous systems · Embedded electronics
+              </div>
+
+              <h3>
+                Autonomous Rover Development
+              </h3>
+
+              <p>
+                Developed practical experience in
+                autonomous vehicle electronics,
+                sensing, embedded systems, and
+                vehicle integration.
+              </p>
+
+              <div class="tags">
+
+                <span class="tag">
+                  Embedded systems
+                </span>
+
+                <span class="tag">
+                  Sensors
+                </span>
+
+                <span class="tag tag-pink">
+                  Autonomy
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TECHNICAL EXPERTISE
+         ========================================== -->
+
+    <section id="expertise">
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div class="eyebrow">
+            Technical expertise
+          </div>
+
+          <h2>
+            The tools behind the work.
+          </h2>
+
+          <p>
+            Engineering capabilities developed through
+            research, coursework, industry collaboration,
+            and hands-on vehicle projects.
+          </p>
+
+        </div>
+
+        <div class="expertise-grid">
+
+          <article class="expertise-card">
+
+            <div class="project-category">
+              Electronics
             </div>
 
             <h3>
-              Award-Winning Formula Student Autonomous Team
+              Circuits, CAN, and Embedded Systems
             </h3>
 
             <p>
-              Electronics leadership across three autonomous vehicle
-              platforms, including a first-year Autonomous Platform
-              Cup vehicle that became the first and only entry to
-              drive on track during its competition.
+              Circuit simulation, BMS investigations,
+              PCB development, wiring, sensors,
+              vehicle integration, and fault diagnosis.
             </p>
 
             <div class="tags">
 
               <span class="tag">
-                Motorsport electronics
+                Multisim
               </span>
 
               <span class="tag">
-                Vehicle integration
+                EasyEDA
               </span>
 
               <span class="tag">
-                Award-winning team
+                CAN
+              </span>
+
+              <span class="tag">
+                ESP32
               </span>
 
             </div>
-
-            <a
-              class="project-link"
-              href="#formula-student"
-            >
-              Explore the Formula Student project →
-            </a>
 
           </article>
 
-          <article class="project-card">
+          <article class="expertise-card">
 
-            <div class="project-number">
-              PROJECT 02
+            <div class="project-category">
+              Battery engineering
             </div>
 
             <h3>
-              Formula E Battery Thermal Modelling
+              Battery Modelling and Thermal Systems
             </h3>
 
             <p>
-              MSc dissertation investigating battery performance
-              under race conditions through electrochemical-thermal
-              modelling, Monaco drive-cycle analysis, and comparison
-              of cooling architectures.
+              Battery sizing, electrochemical-thermal
+              modelling, race-duty-cycle analysis,
+              and cooling-system comparison.
             </p>
 
             <div class="tags">
@@ -1302,75 +1460,146 @@
               </span>
 
               <span class="tag">
-                Thermal management
+                Simscape Battery
+              </span>
+
+              <span class="tag">
+                ANSYS Fluent
               </span>
 
             </div>
 
           </article>
 
-          <article class="project-card">
+          <article class="expertise-card">
 
-            <div class="project-number">
-              PROJECT 03
+            <div class="project-category">
+              Vehicle dynamics
             </div>
 
             <h3>
-              Autonomous Delivery Bike and Powertrain
+              Vehicle Modelling and Drive Cycles
             </h3>
 
             <p>
-              Battery-pack and powertrain development for an
-              autonomous delivery vehicle, examining energy demand,
-              vehicle range, and electrical system performance.
+              Bicycle-model development, vehicle-dynamics
+              analysis, and reverse-engineering of
+              Formula E-inspired vehicle duty cycles.
             </p>
 
             <div class="tags">
 
               <span class="tag">
-                Battery design
+                Adams
               </span>
 
               <span class="tag">
-                Powertrain modelling
+                MATLAB
               </span>
 
               <span class="tag">
-                Autonomous transport
+                Vehicle dynamics
               </span>
 
             </div>
 
           </article>
 
-          <article class="project-card">
+          <article class="expertise-card">
 
-            <div class="project-number">
-              PROJECT 04
+            <div class="project-category">
+              Crash and materials
             </div>
 
             <h3>
-              Autonomous Rover and Embedded Systems
+              Impact Attenuator and Composite Analysis
             </h3>
 
             <p>
-              Autonomous rover engineering involving electronics,
-              sensing, control systems, and practical vehicle
-              development.
+              Crash simulation, impact-attenuator design,
+              material selection, and composite
+              structure evaluation.
             </p>
 
             <div class="tags">
 
               <span class="tag">
-                Embedded systems
+                LS-DYNA
               </span>
 
               <span class="tag">
-                Sensors
+                HyperMesh
               </span>
 
               <span class="tag">
-                Autonomous systems
+                Composites
+              </span>
+
+            </div>
+
+          </article>
+
+          <article class="expertise-card">
+
+            <div class="project-category">
+              NVH
+            </div>
+
+            <h3>
+              Automotive and Structural Vibration
+            </h3>
+
+            <p>
+              NVH analysis across beams, vehicle chassis,
+              seating systems, and suspension applications.
+            </p>
+
+            <div class="tags">
+
+              <span class="tag">
+                ANSYS Workbench
+              </span>
+
+              <span class="tag">
+                Structural analysis
+              </span>
+
+              <span class="tag">
+                Vibration
+              </span>
+
+            </div>
+
+          </article>
+
+          <article class="expertise-card">
+
+            <div class="project-category">
+              Mechanical design
+            </div>
+
+            <h3>
+              CAD and Engineering Design
+            </h3>
+
+            <p>
+              CAD development for a Stirling engine,
+              battery components, and impact-attenuator
+              design projects.
+            </p>
+
+            <div class="tags">
+
+              <span class="tag">
+                SolidWorks
+              </span>
+
+              <span class="tag">
+                CAD
+              </span>
+
+              <span class="tag">
+                Mechanical design
               </span>
 
             </div>
@@ -1378,10 +1607,13 @@
           </article>
 
         </div>
+
       </div>
     </section>
 
-    <!-- FORMULA STUDENT FEATURE -->
+    <!-- ==========================================
+         FORMULA STUDENT
+         ========================================== -->
 
     <section id="formula-student">
       <div class="container">
@@ -1389,95 +1621,80 @@
         <div class="section-heading">
 
           <div class="eyebrow">
-            Featured project · Formula Student AI
+            Formula Student AI UK · 2026
           </div>
 
           <h2>
-            Award-Winning Autonomous Motorsport.
+            Three platforms.
+            One award-winning team.
           </h2>
 
           <p>
-            As Electronics Lead for Oxford Brookes Racing Autonomous,
-            I worked across three autonomous vehicle platforms,
-            contributing to electronics development, electrical
-            integration, testing, and competition preparation.
+            As Electronics Lead for Oxford Brookes Racing
+            Autonomous, I worked across three autonomous
+            vehicle platforms while supporting electronics
+            development, integration, and competition delivery.
           </p>
 
         </div>
 
-        <div class="featured-panel">
+        <div class="racing-feature">
 
           <div class="eyebrow">
             Autonomous Platform Cup
           </div>
 
           <h3>
-            A First-Year Platform That Made History.
+            A first-year vehicle that made history.
           </h3>
 
           <p>
-            During our first year in the Autonomous Platform Cup,
-            our team became the first and only team to drive on track
-            in the competition.
+            During our first year in the Autonomous Platform
+            Cup, our team became the first and only team
+            to drive on track during the competition.
           </p>
 
           <p>
-            I helped establish the vehicle’s electrical and
-            electronic systems from the ground up, supporting the
-            project from early development through integration,
-            testing, and competition delivery.
+            I contributed to the electrical and electronic
+            systems from early development through
+            integration, testing, troubleshooting,
+            and vehicle readiness.
           </p>
 
           <div class="tags">
 
             <span class="tag">
-              First-year platform
-            </span>
-
-            <span class="tag">
-              Vehicle electronics
-            </span>
-
-            <span class="tag">
-              Competition engineering
+              Electronics Lead
             </span>
 
             <span class="tag">
               Electrical integration
             </span>
 
+            <span class="tag">
+              Vehicle testing
+            </span>
+
+            <span class="tag tag-pink">
+              First-year platform
+            </span>
+
           </div>
 
         </div>
 
-        <!-- VEHICLE PLATFORMS -->
+        <div class="platform-grid">
 
-        <div class="section-heading">
-
-          <div class="eyebrow">
-            Three vehicle platforms
-          </div>
-
-          <h2>
-            One Team. Three Autonomous Vehicles.
-          </h2>
-
-          <p>
-            My experience covered a newly developed Autonomous
-            Platform Cup vehicle, the IMechE autonomous development
-            vehicle, and our autonomous race-kart platform.
-          </p>
-
-        </div>
-
-        <div class="platforms-grid">
-
-          <!-- PLATFORM 1 -->
+          <!-- PLATFORM CUP -->
 
           <article class="platform-card">
 
             <!--
-              TO ADD YOUR PLATFORM CUP PHOTO:
+              PHOTO 6: PLATFORM CUP VEHICLE
+
+              Upload:
+
+              platform-cup.jpg
 
               Replace the placeholder div below with:
 
@@ -1486,20 +1703,17 @@
                 src="platform-cup.jpg"
                 alt="Oxford Brookes Racing Autonomous Platform Cup vehicle"
               >
-
-              Upload platform-cup.jpg to GitHub first.
             -->
 
-            <div class="image-placeholder">
-              Autonomous Platform Cup vehicle photo
-              <br>
-              Add an approved image here
+            <div class="platform-placeholder">
+              Add an approved Platform Cup
+              vehicle photograph.
             </div>
 
             <div class="platform-content">
 
-              <div class="project-number">
-                PLATFORM 01
+              <div class="project-category">
+                Platform 01
               </div>
 
               <h3>
@@ -1507,33 +1721,24 @@
               </h3>
 
               <p>
-                First-year competition platform developed from
-                the ground up, with my work focused on electrical
-                systems, electronics integration, testing, and
-                vehicle readiness.
+                First-year autonomous racing platform
+                developed from the ground up.
               </p>
 
-              <div class="tags">
-
-                <span class="tag">
-                  Electrical architecture
-                </span>
-
-                <span class="tag">
-                  Integration
-                </span>
-
-              </div>
-
             </div>
+
           </article>
 
-          <!-- PLATFORM 2 -->
+          <!-- ADS-DV -->
 
           <article class="platform-card">
 
             <!--
-              TO ADD YOUR ADS-DV PHOTO:
+              PHOTO 7: IMECHE ADS-DV
+
+              Upload:
+
+              adsdv.jpg
 
               Replace the placeholder div below with:
 
@@ -1542,20 +1747,16 @@
                 src="adsdv.jpg"
                 alt="IMechE autonomous driving system development vehicle"
               >
-
-              Upload adsdv.jpg to GitHub first.
             -->
 
-            <div class="image-placeholder">
-              IMechE ADS-DV photo
-              <br>
-              Add an approved image here
+            <div class="platform-placeholder">
+              Add an approved IMechE ADS-DV photograph.
             </div>
 
             <div class="platform-content">
 
-              <div class="project-number">
-                PLATFORM 02
+              <div class="project-category">
+                Platform 02
               </div>
 
               <h3>
@@ -1563,33 +1764,25 @@
               </h3>
 
               <p>
-                Experience supporting the autonomous driving
-                system development vehicle used within Formula
-                Student AI for autonomous vehicle development
-                and testing.
+                Autonomous driving system development
+                vehicle used for Formula Student
+                AI development.
               </p>
 
-              <div class="tags">
-
-                <span class="tag">
-                  Autonomous systems
-                </span>
-
-                <span class="tag">
-                  Testing
-                </span>
-
-              </div>
-
             </div>
+
           </article>
 
-          <!-- PLATFORM 3 -->
+          <!-- RACE KART -->
 
           <article class="platform-card">
 
             <!--
-              TO ADD YOUR RACE-KART PHOTO:
+              PHOTO 8: AUTONOMOUS RACE KART
+
+              Upload:
+
+              race-kart.jpg
 
               Replace the placeholder div below with:
 
@@ -1598,20 +1791,17 @@
                 src="race-kart.jpg"
                 alt="Oxford Brookes Racing Autonomous race-kart platform"
               >
-
-              Upload race-kart.jpg to GitHub first.
             -->
 
-            <div class="image-placeholder">
-              Autonomous race-kart photo
-              <br>
-              Add an approved image here
+            <div class="platform-placeholder">
+              Add an approved autonomous
+              race-kart photograph.
             </div>
 
             <div class="platform-content">
 
-              <div class="project-number">
-                PLATFORM 03
+              <div class="project-category">
+                Platform 03
               </div>
 
               <h3>
@@ -1619,380 +1809,520 @@
               </h3>
 
               <p>
-                Practical engineering experience on the team’s
-                race-kart platform, supporting vehicle
-                electronics, autonomous development, and
-                system integration.
+                Race-kart platform supporting practical
+                autonomous systems and vehicle
+                electronics development.
               </p>
 
-              <div class="tags">
-
-                <span class="tag">
-                  Race kart
-                </span>
-
-                <span class="tag">
-                  Electronics
-                </span>
-
-              </div>
-
             </div>
+
           </article>
 
         </div>
 
-        <!-- INDIVIDUAL CONTRIBUTIONS -->
+      </div>
+    </section>
 
-        <div
-          class="section-heading"
-          style="margin-top: 58px;"
-        >
+    <!-- ==========================================
+         RECOGNITION
+         ========================================== -->
+
+    <section id="recognition">
+      <div class="container">
+
+        <div class="section-heading">
 
           <div class="eyebrow">
-            My contribution
+            Recognition
           </div>
 
           <h2>
-            Electronics From Concept to Competition.
+            Awards, milestones,
+            and moments that matter.
           </h2>
 
           <p>
-            High-level descriptions of my work are provided without
-            disclosing confidential vehicle designs or internal
-            technical documentation.
+            Recognition across autonomous motorsport,
+            engineering research, STEM representation,
+            and industry development.
           </p>
 
         </div>
 
-        <div class="contributions-grid">
+        <!-- INDIVIDUAL RECOGNITION -->
 
-          <article class="contribution-card">
+        <div class="recognition-group">
 
-            <h3>
-              Electrical Systems
-            </h3>
-
-            <p>
-              Contributed to electrical system development,
-              hardware integration, wiring, and preparation
-              of vehicle electronics for competition.
-            </p>
-
-          </article>
-
-          <article class="contribution-card">
-
-            <h3>
-              Sensors and Vehicle Integration
-            </h3>
-
-            <p>
-              Worked on integrating vehicle systems and sensors
-              to support autonomous operation and coordinated
-              engineering development.
-            </p>
-
-          </article>
-
-          <article class="contribution-card">
-
-            <h3>
-              Testing and Troubleshooting
-            </h3>
-
-            <p>
-              Supported electrical testing, technical fault
-              diagnosis, and problem-solving under demanding
-              competition deadlines.
-            </p>
-
-          </article>
-
-          <article class="contribution-card">
-
-            <h3>
-              Team Leadership
-            </h3>
-
-            <p>
-              Served as Electronics Lead within a multidisciplinary
-              student team working across autonomous vehicle
-              development and motorsport competition.
-            </p>
-
-          </article>
-
-        </div>
-
-        <!-- TEAM AWARDS -->
-
-        <div
-          class="panel"
-          style="margin-top: 30px;"
-        >
-
-          <div class="eyebrow">
-            Competition achievements
-          </div>
-
-          <h3 style="margin-top: 12px;">
-            Formula Student AI Team Awards
+          <h3>
+            Individual recognition
           </h3>
 
-          <p>
-            Our team achieved recognition across multiple Formula
-            Student AI competition categories.
-          </p>
+          <div class="recognition-list">
 
-          <div class="awards-grid">
+            <article class="recognition-card">
 
-            <div class="award-card">
+              <span class="recognition-year">
+                OCTOBER 2025
+              </span>
+
+              <strong>
+                Best Student Poster Award
+              </strong>
+
+              <span>
+                Advanced Automotive Summit · Recognition
+                for outstanding dissertation work.
+              </span>
+
+            </article>
+
+            <article class="recognition-card">
+
+              <span class="recognition-year">
+                STEM RECOGNITION
+              </span>
+
+              <strong>
+                365 Faces That Are Changing STEM
+              </strong>
+
+              <span>
+                Recognised by Enginuity for contribution
+                and representation in STEM.
+              </span>
+
+            </article>
+
+            <article class="recognition-card">
+
+              <span class="recognition-year">
+                2026
+              </span>
+
+              <strong>
+                McLaren Next Women in Engineering
+              </strong>
+
+              <span>
+                Selected participant in McLaren’s
+                engineering development programme.
+              </span>
+
+            </article>
+
+            <article class="recognition-card">
+
+              <span class="recognition-year">
+                2026
+              </span>
+
+              <strong>
+                Faraday International Conference
+              </strong>
+
+              <span>
+                Selected conference speaker.
+              </span>
+
+            </article>
+
+          </div>
+
+        </div>
+
+        <!-- FORMULA STUDENT RECOGNITION -->
+
+        <div class="recognition-group">
+
+          <h3>
+            Formula Student AI UK 2026 · Team awards
+          </h3>
+
+          <div class="recognition-list">
+
+            <article class="recognition-card">
+
+              <span class="recognition-year">
+                FS-AI UK 2026
+              </span>
 
               <strong>
                 Overall Formula Student AI Winner
               </strong>
 
               <span>
-                Overall competition achievement.
+                Oxford Brookes Racing Autonomous
+                team achievement.
               </span>
 
-            </div>
+            </article>
 
-            <div class="award-card">
+            <article class="recognition-card">
+
+              <span class="recognition-year">
+                FS-AI UK 2026
+              </span>
 
               <strong>
                 Overall Dynamics Winner
               </strong>
 
               <span>
-                Dynamic event performance.
+                Award for overall dynamic-event performance.
               </span>
 
-            </div>
+            </article>
 
-            <div class="award-card">
+            <article class="recognition-card">
+
+              <span class="recognition-year">
+                FS-AI UK 2026
+              </span>
 
               <strong>
                 Overall Track Drive Winner
               </strong>
 
               <span>
-                Autonomous track-driving achievement.
+                Award for autonomous track-drive performance.
               </span>
 
-            </div>
+            </article>
 
-            <div class="award-card">
+            <article class="recognition-card">
+
+              <span class="recognition-year">
+                FS-AI UK 2026
+              </span>
 
               <strong>
                 Overall Skidpad Winner
               </strong>
 
               <span>
-                Autonomous skidpad performance.
+                Award for autonomous skidpad performance.
               </span>
 
-            </div>
+            </article>
 
-            <div class="award-card">
+            <article class="recognition-card">
+
+              <span class="recognition-year">
+                FS-AI UK 2026
+              </span>
 
               <strong>
-                Autonomous Platform Cup Milestone
+                Overall Autocross Winner
               </strong>
 
               <span>
-                First and only team to drive on track during
-                the competition.
+                Award for autonomous autocross performance.
               </span>
 
-            </div>
+            </article>
+
+            <article class="recognition-card">
+
+              <span class="recognition-year">
+                AUTONOMOUS PLATFORM CUP 2026
+              </span>
+
+              <strong>
+                First and Only Team to Drive on Track
+              </strong>
+
+              <span>
+                Competition milestone achieved during
+                the platform’s first year.
+              </span>
+
+            </article>
 
           </div>
-
-          <p style="margin-top: 20px;">
-            These results represent the wider team’s achievements.
-            My individual role focused on electronics leadership,
-            electrical integration, testing, and troubleshooting.
-          </p>
 
         </div>
 
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
+    <!-- ==========================================
+         RESEARCH, PUBLICATIONS, AND SPEAKING
+         ========================================== -->
 
-    <section id="experience">
+    <section id="research">
       <div class="container">
 
         <div class="section-heading">
 
           <div class="eyebrow">
-            Experience
+            Research and speaking
           </div>
 
           <h2>
-            Beyond the Classroom.
+            Sharing the engineering
+            behind the work.
           </h2>
 
           <p>
-            Experience across motorsport, autonomous engineering,
-            technical research, and industry development.
+            Publications, technical presentations,
+            autonomous-driving research, and
+            international engineering events.
           </p>
 
         </div>
 
-        <div class="experience-list">
+        <div class="experience-grid">
 
-          <article class="experience-item">
+          <article class="experience-card">
+
+            <div class="project-category">
+              Publication · 2025
+            </div>
 
             <h3>
-              Oxford Brookes Racing Autonomous
+              GetPublished Conference
             </h3>
 
             <p>
-              Electronics Lead · Autonomous race-vehicle development,
-              electronics integration, and Formula Student competition.
+              Published research presented through the
+              GetPublished Conference 2025, with work
+              available through RADAR.
             </p>
 
           </article>
 
-          <article class="experience-item">
+          <article class="experience-card">
+
+            <div class="project-category">
+              Selected speaker · 2026
+            </div>
 
             <h3>
-              McLaren Next Women in Engineering
+              Faraday International Conference
             </h3>
 
             <p>
-              Selected participant in McLaren’s engineering
-              development programme.
+              Selected to speak at the Faraday
+              International Conference 2026.
             </p>
 
           </article>
 
-          <article class="experience-item">
+          <article class="experience-card">
+
+            <div class="project-category">
+              International speaker · Germany
+            </div>
 
             <h3>
-              Autonomous Driving and Intelligent Transport Research
+              Autonomous Racing Workshop
             </h3>
 
             <p>
-              Experience within an autonomous-driving research
+              Speaker at an autonomous racing workshop
+              at Hamburg University of Technology,
+              presenting our autonomous racing team
+              and vehicle systems.
+            </p>
+
+          </article>
+
+          <article class="experience-card">
+
+            <div class="project-category">
+              Research assistant
+            </div>
+
+            <h3>
+              Autonomous Driving and Intelligent Transport
+            </h3>
+
+            <p>
+              Research Assistant within the Autonomous
+              Driving and Intelligent Transport research
               environment at Oxford Brookes University.
             </p>
 
           </article>
 
-          <article class="experience-item">
+          <article class="experience-card">
+
+            <div class="project-category">
+              Research volunteering
+            </div>
 
             <h3>
-              MIT Driverless Team
+              UK Atomic Energy Authority · RACE
             </h3>
 
             <p>
-              Technical visit and engagement with student-led
-              autonomous vehicle engineering.
+              Volunteered to support data collection for
+              autonomous pedestrian prediction and research
+              into how autonomous vehicles should respond
+              to pedestrian behaviour.
             </p>
 
           </article>
 
-          <article class="experience-item">
+          <article class="experience-card">
+
+            <div class="project-category">
+              Academic and industry engagement
+            </div>
 
             <h3>
-              Formula E
+              MIT Driverless Team Visit
             </h3>
 
             <p>
-              Event volunteering and exposure to electric
-              motorsport operations.
-            </p>
-
-          </article>
-
-          <article class="experience-item">
-
-            <h3>
-              Conference Recognition
-            </h3>
-
-            <p>
-              Award-winning research and technical communication.
-              Further project and award details to be added.
+              Technical visit and engagement with
+              student-led autonomous vehicle engineering
+              and autonomous racing development.
             </p>
 
           </article>
 
         </div>
+
       </div>
     </section>
 
-    <!-- TECHNICAL SKILLS -->
+    <!-- ==========================================
+         COMMUNITY AND VOLUNTEERING
+         ========================================== -->
 
-    <section id="skills">
+    <section id="community">
       <div class="container">
 
         <div class="section-heading">
 
           <div class="eyebrow">
-            Technical capabilities
+            Community and volunteering
           </div>
 
           <h2>
-            Engineering Toolkit.
+            Engineering is better
+            when more people belong.
           </h2>
 
-        </div>
-
-        <div class="skills-grid">
-
-          <article class="skill-card">
-
-            <h3>
-              Electronics
-            </h3>
-
-            <p>
-              Electrical integration, wiring, sensors, CAN
-              communication, PCB development, hardware
-              testing, and fault diagnosis.
-            </p>
-
-          </article>
-
-          <article class="skill-card">
-
-            <h3>
-              Simulation
-            </h3>
-
-            <p>
-              MATLAB, Simulink, Simscape Battery, battery
-              modelling, thermal analysis, and vehicle
-              performance modelling.
-            </p>
-
-          </article>
-
-          <article class="skill-card">
-
-            <h3>
-              Vehicle Systems
-            </h3>
-
-            <p>
-              Autonomous vehicles, embedded control, battery
-              systems, steering integration, electrical
-              validation, and motorsport engineering.
-            </p>
-
-          </article>
+          <p>
+            Involvement in motorsport, engineering outreach,
+            and communities supporting greater participation
+            in STEM.
+          </p>
 
         </div>
+
+        <div class="community-grid">
+
+          <article class="community-card">
+
+            <div class="project-category">
+              Motorsport
+            </div>
+
+            <h3>
+              Formula E Volunteer
+            </h3>
+
+            <p>
+              Supported electric motorsport event operations.
+            </p>
+
+          </article>
+
+          <article class="community-card">
+
+            <div class="project-category">
+              Engineering outreach
+            </div>
+
+            <h3>
+              SheCanEngineer
+            </h3>
+
+            <p>
+              Volunteer supporting women in engineering.
+            </p>
+
+          </article>
+
+          <article class="community-card">
+
+            <div class="project-category">
+              Motorsport community
+            </div>
+
+            <h3>
+              Girls on Track UK
+            </h3>
+
+            <p>
+              Participant in a community supporting women
+              and girls in motorsport.
+            </p>
+
+          </article>
+
+          <article class="community-card">
+
+            <div class="project-category">
+              Professional membership
+            </div>
+
+            <h3>
+              AFBE Member
+            </h3>
+
+            <p>
+              Member of the Association for Black
+              and Minority Ethnic Engineers.
+            </p>
+
+          </article>
+
+          <article class="community-card">
+
+            <div class="project-category">
+              Autonomous research
+            </div>
+
+            <h3>
+              RACE · UK Atomic Energy Authority
+            </h3>
+
+            <p>
+              Supported pedestrian-behaviour data collection
+              for autonomous vehicle research.
+            </p>
+
+          </article>
+
+          <article class="community-card">
+
+            <div class="project-category">
+              STEM visibility
+            </div>
+
+            <h3>
+              Engineering Advocacy
+            </h3>
+
+            <p>
+              Sharing engineering experiences, autonomous
+              vehicle projects, and opportunities within STEM.
+            </p>
+
+          </article>
+
+        </div>
+
       </div>
     </section>
 
-    <!-- CONTACT -->
+    <!-- ==========================================
+         CONTACT
+         ========================================== -->
 
     <section id="contact">
       <div class="container">
@@ -2004,18 +2334,19 @@
           </div>
 
           <h2>
-            Let’s Build Something Ambitious.
+            Let’s build something
+            exciting together.
           </h2>
 
         </div>
 
-        <div class="contact-card">
+        <div class="contact-panel">
 
           <p>
-            I am interested in early-career opportunities in Formula 1,
-            Formula E, endurance racing, motorsport electronics,
-            autonomous systems, intelligent transport, vehicle
-            engineering, battery development, testing, and validation.
+            I am interested in opportunities involving
+            motorsport electronics, autonomous systems,
+            vehicle engineering, battery development,
+            testing, and technical validation.
           </p>
 
           <a
@@ -2038,14 +2369,14 @@
               class="button button-secondary"
               href="tel:+447856566090"
             >
-              UK: 07856 566090
+              UK · 07856 566090
             </a>
 
             <a
               class="button button-secondary"
               href="tel:+19786411379"
             >
-              US: 978-641-1379
+              US · 978-641-1379
             </a>
 
             <a
@@ -2054,7 +2385,7 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              LinkedIn
+              LinkedIn ↗
             </a>
 
             <a
@@ -2063,7 +2394,7 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              Instagram: @a_beee_mode
+              Instagram ↗
             </a>
 
             <a
@@ -2072,10 +2403,11 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              GitHub
+              GitHub ↗
             </a>
 
           </div>
+
         </div>
 
       </div>
@@ -2083,11 +2415,14 @@
 
   </main>
 
-  <!-- FOOTER -->
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
 
   <footer>
     <div class="container">
-      © Abi Balakrishnan · Motorsport Electronics · Autonomous Systems
+      Abi Balakrishnan ↗ ✨ · Motorsport Electronics ·
+      Autonomous Systems · Electric Vehicle Engineering
     </div>
   </footer>
 
