@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Abi Balakrishnan | Motorsport Electronics Engineer</title>
+
+  <style>
+    :root {
+      --background: #090b10;
+      --surface: #11151d;
+      --surface-light: #171d28;
+      --text: #f3f5f8;
+      --muted: #a9b2c1;
+      --accent: #25d1ff;
+      --accent-secondary: #b9ff66;
+      --border: rgba(255, 255, 255, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: 0 auto;
+    }
+
+    .navigation {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(9, 11, 16, 0.88);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navigation-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .navigation-links {
+      display: flex;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .navigation-links a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      min-height: 78vh;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(37, 209, 255, 0.12),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 15% 85%,
+          rgba(185, 255, 102, 0.07),
+          transparent 30%
+        );
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 850px;
+      margin: 18px 0;
+      font-size: clamp(48px, 8vw, 88px);
+      line-height: 1.03;
+      letter-spacing: -4px;
+    }
+
+    .hero-description {
+      max-width: 690px;
+      color: var(--muted);
+      font-size: 19px;
+    }
+
+    .button-row {
+      margin-top: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 20px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-weight: 700;
+      transition: transform 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+    }
+
+    .button-primary {
+      color: #061018;
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .button-secondary {
+      color: var(--text);
+      background: transparent;
+    }
+
+    section {
+      padding: 88px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 30px;
+    }
+
+    .section-heading h2 {
+      margin: 8px 0;
+      font-size: 38px;
+    }
+
+    .section-heading p {
+      max-width: 700px;
+      color: var(--muted);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.9fr;
+      gap: 24px;
+    }
+
+    .panel {
+      padding: 28px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    .panel p,
+    .panel li {
+      color: var(--muted);
+    }
+
+    .panel ul {
+      padding-left: 20px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .project-card {
+      min-height: 265px;
+      padding: 26px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(37, 209, 255, 0.55);
+    }
+
+    .project-number {
+      color: var(--accent);
+      font-size: 13px;
+      letter-spacing: 1.5px;
+    }
+
+    .project-card h3 {
+      margin: 14px 0 8px;
+      font-size: 22px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+    }
+
+    .tags {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      padding: 5px 10px;
+      background: var(--surface-light);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .experience-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .experience-item {
+      padding: 22px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .experience-item h3 {
+      margin: 0 0 6px;
+    }
+
+    .experience-item p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .skill-card {
+      padding: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .skill-card h3 {
+      margin-top: 0;
+      color: var(--accent);
+    }
+
+    .skill-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .contact-card {
+      padding: 34px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    .contact-card p {
+      max-width: 650px;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 28px 0 42px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 760px) {
+      .navigation-inner {
+        min-height: 68px;
+      }
+
+      .navigation-links {
+        gap: 12px;
+        font-size: 12px;
+      }
+
+      .about-grid,
+      .projects-grid,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .hero {
+        min-height: 72vh;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navigation">
+    <div class="container navigation-inner">
+      <a class="brand" href="#home">
+        ABI<span>.</span>
+      </a>
+
+      <div class="navigation-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="eyebrow">
+          Motorsport electronics · Autonomous systems · EV engineering
+        </div>
+
+        <h1>
+          Engineering what moves motorsport forward.
+        </h1>
+
+        <p class="hero-description">
+          I’m Abi Balakrishnan, an automotive and electro-mechanical
+          engineer working across race-car electronics, autonomous
+          vehicles, battery systems, and technical validation.
+        </p>
+
+        <div class="button-row">
+          <a class="button button-primary" href="#projects">
+            Explore my projects
+          </a>
+
+          <a class="button button-secondary" href="#contact">
+            Get in touch
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">About me</div>
+
+          <h2>
+            Electronics meets high-performance engineering.
+          </h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="panel">
+            <p>
+              I am an engineer with hands-on experience in autonomous
+              race vehicles, vehicle electronics, electrical integration,
+              and electric vehicle battery modelling.
+            </p>
+
+            <p>
+              My engineering interests include motorsport electronics,
+              vehicle systems, embedded control, energy storage,
+              testing, and validation.
+            </p>
+
+            <p>
+              I enjoy working where practical hardware, engineering
+              analysis, and ambitious team projects come together.
+            </p>
+          </div>
+
+          <div class="panel">
+            <h3>
+              Education and focus
+            </h3>
+
+            <ul>
+              <li>
+                MSc Automotive Engineering with Electric Vehicles,
+                Oxford Brookes University.
+              </li>
+
+              <li>
+                BEng Electro-Mechanical Engineering,
+                Oxford Brookes University.
+              </li>
+
+              <li>
+                Motorsport electronics and autonomous vehicles.
+              </li>
+
+              <li>
+                Battery modelling and thermal management.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Selected work</div>
+
+          <h2>
+            Engineering projects.
+          </h2>
+
+          <p>
+            A selection of projects across motorsport electronics,
+            autonomous vehicles, battery engineering, and research.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-number">PROJECT 01</div>
+
+            <h3>
+              Autonomous Formula Student Race Car
+            </h3>
+
+            <p>
+              Electronics leadership and vehicle integration for
+              an autonomous motorsport project, including sensors,
+              electrical testing, and system troubleshooting.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Motorsport electronics</span>
+              <span class="tag">CAN communication</span>
+              <span class="tag">Vehicle integration</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-number">PROJECT 02</div>
+
+            <h3>
+              Formula E Battery Thermal Modelling
+            </h3>
+
+            <p>
+              Investigating battery behavior under race conditions
+              through electrochemical-thermal modelling, drive-cycle
+              analysis, and cooling-system comparison.
+            </p>
+
+            <div class="tags">
+              <span class="tag">MATLAB</span>
+              <span class="tag">Simulink</span>
+              <span class="tag">Thermal management</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-number">PROJECT 03</div>
+
+            <h3>
+              Autonomous Delivery Vehicle Powertrain
+            </h3>
+
+            <p>
+              Battery-pack and powertrain development for an
+              autonomous delivery vehicle, with a focus on energy
+              requirements, vehicle range, and system performance.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Battery design</span>
+              <span class="tag">Powertrain modelling</span>
+              <span class="tag">Autonomous mobility</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-number">PROJECT 04</div>
+
+            <h3>
+              Autonomous Rover and Embedded Systems
+            </h3>
+
+            <p>
+              Practical autonomous-vehicle development involving
+              electronics, embedded control, sensing, and system
+              integration.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Embedded systems</span>
+              <span class="tag">Sensors</span>
+              <span class="tag">Autonomous systems</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Experience</div>
+
+          <h2>
+            Beyond the classroom.
+          </h2>
+        </div>
+
+        <div class="experience-list">
+          <article class="experience-item">
+            <h3>
+              Oxford Brookes Racing Autonomous
+            </h3>
+
+            <p>
+              Electronics Lead · Formula Student autonomous vehicle
+              development and competition preparation.
+            </p>
+          </article>
+
+          <article class="experience-item">
+            <h3>
+              McLaren Next Women in Engineering
+            </h3>
+
+            <p>
+              Selected participant in McLaren’s engineering
+              development programme.
+            </p>
+          </article>
+
+          <article class="experience-item">
+            <h3>
+              Autonomous Driving and Intelligent Transport Research
+            </h3>
+
+            <p>
+              Experience within an autonomous-vehicle research
+              environment at Oxford Brookes University.
+            </p>
+          </article>
+
+          <article class="experience-item">
+            <h3>
+              MIT Driverless Team
+            </h3>
+
+            <p>
+              Technical visit and engagement with student-led
+              autonomous vehicle engineering.
+            </p>
+          </article>
+
+          <article class="experience-item">
+            <h3>
+              Formula E
+            </h3>
+
+            <p>
+              Event volunteering and exposure to electric motorsport
+              operations.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Technical capabilities</div>
+
+          <h2>
+            Engineering toolkit.
+          </h2>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card">
+            <h3>
+              Electronics
+            </h3>
+
+            <p>
+              Electrical integration, wiring, sensors, CAN
+              communication, PCB development, and fault diagnosis.
+            </p>
+          </article>
+
+          <article class="skill-card">
+            <h3>
+              Simulation
+            </h3>
+
+            <p>
+              MATLAB, Simulink, Simscape Battery, battery modelling,
+              thermal analysis, and vehicle performance modelling.
+            </p>
+          </article>
+
+          <article class="skill-card">
+            <h3>
+              Vehicle systems
+            </h3>
+
+            <p>
+              Autonomous vehicles, embedded control, battery packs,
+              steering integration, testing, and validation.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Get in touch</div>
+
+          <h2>
+            Let’s build something ambitious.
+          </h2>
+        </div>
+
+        <div class="contact-card">
+          <p>
+            I am interested in early-career opportunities in
+            motorsport electronics, vehicle systems, battery
+            engineering, testing, and validation.
+          </p>
+
+          <div class="button-row">
+            <a
+              class="button button-primary"
+              href="https://github.com/abirami30042003-sudo"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View my GitHub
+            </a>
+
+            <a class="button button-secondary" href="#home">
+              Back to top
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © Abi Balakrishnan · Motorsport Electronics & EV Engineering
+    </div>
+  </footer>
+</body>
+</html>
